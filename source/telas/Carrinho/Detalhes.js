@@ -1,18 +1,18 @@
 import React from "react";
 
-import {View, Image, Text, StyleSheet } from "react-native";
-import logoVendedor from '../../../assets/logo.png'
+import { View, Image, Text, StyleSheet } from "react-native";
+import Texto from "../../components/Texto";
 
-export default function Detalhes() {
+export default function Detalhes({ titulo, tituloProduto, descricao, logoVendedor, nomeVendedor, preco}) {
         return <>
-                <Text style={styles.detalhes}>Detalhes do Carrinho</Text>
-                <Text style={styles.titulo}>Kit IOT</Text>
+                <Texto style={styles.detalhes}>{titulo}</Texto>
+                <Texto style={styles.titulo}>{ tituloProduto}</Texto>
                 <View style={styles.vendedor}>
                         <Image style={styles.logoVendedor} source={logoVendedor} />
-                        <Text style={styles.nomeVendedor}>Nuven's Shopping</Text>
+                        <Texto style={styles.nomeVendedor}>{nomeVendedor}</Texto>
                 </View>
-                <Text style={styles.desc}>Um kit IOT que revoluciona a vida dos estudantes</Text>
-                <Text style={styles.preco}>R$ 99,00</Text>
+                <Texto style={styles.desc}>{descricao}</Texto>
+                <Texto style={styles.preco}>{preco}</Texto>
         </>;
 }
 
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
                 fontWeight: 'bold',
                 fontSize: 25,
                 lineHeight: 35,
-                textAlign: 'center'
+                textAlign: 'center',
+                fontFamily:'Montserrat_700Bold',
         },
         titulo: {
                 color: '#ffa500',
@@ -48,12 +49,13 @@ const styles = StyleSheet.create({
         desc: {
                 fontSize: 20,
                 paddingVertical: 10,
-                paddingLeft: 5
+                paddingLeft: 15,
+                fontFamily: 'Montserrat_400Regular'
         },
         preco: {
                 fontSize: 35,
                 fontWeight: 'bold',
                 textAlign: 'right',
-                paddingHorizontal: 10
+                paddingHorizontal: 10,
         },        
 })
